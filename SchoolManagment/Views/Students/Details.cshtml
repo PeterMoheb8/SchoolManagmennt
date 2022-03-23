@@ -1,0 +1,105 @@
+﻿@model SchoolManagment.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnrollmentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnrollmentDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MiddleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MiddleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+
+    </dl>
+
+
+    <table class="table table-responsive">
+
+
+
+        <thead id="customers ">
+            <tr>
+                <th>Course Title</th>
+                <th>Criedits</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var enrollment in Model.Enrollments)
+            {
+                <tr>
+                    <td>
+                        @enrollment.Course.CourseId
+                    </td>
+
+
+                    <td>
+                        @enrollment.Course.Credidt
+                    </td>
+
+
+                    <td>
+                        @enrollment.Grade
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+
+
+
+    </table>
+
+
+
+
+
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StudentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
